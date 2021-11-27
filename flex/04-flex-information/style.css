@@ -11,6 +11,19 @@ img {
   font-size: 36px;
   font-weight: 900;
   text-align: center;
+  margin-bottom: 32px;
+}
+
+.plants-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 52px;
+}
+
+.plants-container div {
+  max-width: 200px;
 }
 
 /* do not edit this footer */
