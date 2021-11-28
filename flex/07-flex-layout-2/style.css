@@ -1,28 +1,93 @@
 body {
+  display: flex;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 .header {
   height: 72px;
   background: darkmagenta;
   color: white;
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
 }
 
 .footer {
   height: 72px;
   background: #eee;
   color: darkmagenta;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar {
   width: 300px;
   background: royalblue;
+  padding: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  padding: 32px;
+
+  /* 
+    In this use case margins between the flex items (cards)
+    seem better (look at the solution to compare) but wanted to document
+    that I used gap in my initial implementation but will consider
+    the pros and cons of using margin vs. gap next time I implement 
+    something like this
+   */
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .card {
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0,0,0,.06);
   border-radius: 4px;
+  padding: 16px;
+
+  /* 
+    After comparing my initial implementation 
+    to the solution, I realized that using flex: 1
+    over specifying a width in this use case isn't the best 
+    because wrapping stops occuring quicker in bigger viewports
+    in the former and (in my opinion) the UI for the cards do not look
+    as good and it is harder to debug any wrap issues that may arise 
+    in the future were this to be used in prod 
+  */
+  width: 300px;
+  /* flex: 1; */
+}
+
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
